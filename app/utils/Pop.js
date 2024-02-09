@@ -18,10 +18,23 @@ export class Pop {
       const res = await Swal.fire({
         title,
         text,
-        icon,
-        confirmButtonText,
-        showCancelButton: true,
-        reverseButtons: true,
+        icon: 'Image icon',
+        iconHtml: '<img src="https://static.thenounproject.com/png/2062361-200.png">',
+        html: `
+        <form onsubmit="app.PlayersController.addPlayer()">
+        <div class="mb-3">
+          <label for="name" class="form-label">Player Name:</label>
+          <input type="text" class="form-text" minlength="2" maxlength="15" name="playerName" required />
+        </div>
+        <div class="mb-3">
+          <button type="submit" class="btn btn-primary">Add +</button>
+        </div>
+      </form>
+    </main>
+  `,
+        confirmButtonText : "Done",
+        showCancelButton: false,
+        reverseButtons: false,
         confirmButtonColor: 'var(--bs-primary)',
         cancelButtonColor: 'var(--bs-secondary)',
       })
